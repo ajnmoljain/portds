@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anmol Jain — Data Analyst</title>
+<meta name="description" content="Data Analyst with 1.5+ years of experience in warehouse operations, Python, SQL, and machine learning. Open to DA, ML, and Junior DS roles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #0f1c2e;
+    --navy2: #1a2d45;
+    --teal: #0d7a6b;
+    --teal-light: #e6f4f1;
+    --teal-mid: #0a6558;
+    --amber: #c47c1a;
+    --amber-light: #fdf4e3;
+    --text: #1a1a2e;
+    --muted: #5a6478;
+    --border: #dde3ed;
+    --bg: #f8f9fc;
+    --white: #ffffff;
+    --ff-head: 'Playfair Display', serif;
+    --ff-body: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--ff-body);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 12px rgba(15,28,46,.06);
+  }
+  .nav-logo {
+    font-family: var(--ff-head);
+    font-size: 20px;
+    color: var(--navy);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: color .2s;
+    letter-spacing: .1px;
+  }
+  .nav-links a:hover { color: var(--teal); }
+  .nav-cta {
+    background: var(--teal);
+    color: #fff;
+    padding: 9px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background .2s;
+  }
+  .nav-cta:hover { background: var(--teal-mid); }
+  .hamburger { display: none; cursor: pointer; background: none; border: none; }
+  .hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: var(--navy); margin: 5px 0; border-radius: 2px; transition: .3s;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    color: #fff;
+    padding: 80px 48px 72px;
+    display: flex;
+    gap: 64px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .hero-left { flex: 1; min-width: 300px; }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(13,122,107,.25);
+    border: 1px solid rgba(13,122,107,.5);
+    color: #7ecfbe;
+    font-size: 12px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 22px;
+    letter-spacing: .6px;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-family: var(--ff-head);
+    font-size: 50px;
+    line-height: 1.15;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .hero h1 em { color: #7ecfbe; font-style: normal; }
+  .hero-sub {
+    color: #a0b4cc;
+    font-size: 16px;
+    line-height: 1.75;
+    max-width: 480px;
+    margin-bottom: 28px;
+    font-weight: 300;
+  }
+  .hero-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 34px;
+  }
+  .htag {
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.14);
+    color: #c8d8e8;
+    font-size: 12px;
+    padding: 5px 13px;
+    border-radius: 4px;
+    letter-spacing: .2px;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--teal);
+    color: #fff;
+    padding: 12px 26px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background .2s;
+  }
+  .btn-primary:hover { background: var(--teal-mid); }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,.28);
+    color: #fff;
+    padding: 12px 26px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: border-color .2s, background .2s;
+  }
+  .btn-outline:hover { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.45); }
+
+  .hero-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    min-width: 240px;
+  }
+  .stat-card {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+  }
+  .stat-card .num {
+    font-family: var(--ff-head);
+    font-size: 34px;
+    color: #7ecfbe;
+    font-weight: 600;
+    line-height: 1;
+  }
+  .stat-card .label {
+    font-size: 11px;
+    color: #7a90a8;
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+
+  /* ── SECTIONS ── */
+  .section { padding: 72px 48px; }
+  .section.alt { background: var(--white); }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 1.8px;
+    color: var(--teal);
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: var(--ff-head);
+    font-size: 34px;
+    color: var(--navy);
+    margin-bottom: 10px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .section-sub {
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 540px;
+    margin-bottom: 44px;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline { display: flex; flex-direction: column; }
+  .tl-item {
+    display: flex;
+    gap: 36px;
+    padding-bottom: 44px;
+  }
+  .tl-left {
+    width: 170px;
+    flex-shrink: 0;
+    text-align: right;
+    padding-top: 3px;
+  }
+  .tl-date { font-size: 12px; color: var(--muted); font-weight: 400; }
+  .tl-role { font-size: 11px; color: var(--teal); font-weight: 500; margin-top: 3px; text-transform: uppercase; letter-spacing: .8px; }
+  .tl-line { width: 1px; background: var(--border); flex-shrink: 0; position: relative; }
+  .tl-dot {
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--teal); position: absolute;
+    left: -5.5px; top: 7px;
+    border: 2px solid var(--bg);
+  }
+  .alt .tl-dot { border-color: var(--white); }
+  .tl-body { flex: 1; padding-top: 0; }
+  .tl-org { font-size: 13px; color: var(--muted); margin-bottom: 6px; font-weight: 400; }
+  .tl-title { font-size: 18px; font-weight: 500; color: var(--navy); margin-bottom: 10px; }
+  .tl-desc {
+    color: var(--muted); font-size: 14px; line-height: 1.75;
+    margin-bottom: 14px; font-weight: 300; max-width: 600px;
+  }
+  .tl-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip {
+    background: var(--teal-light);
+    color: var(--teal);
+    font-size: 11px;
+    padding: 4px 11px;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+  .tl-impacts { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+  .impact {
+    background: var(--amber-light);
+    border-left: 2px solid var(--amber);
+    padding: 6px 13px;
+    font-size: 12px;
+    color: var(--amber);
+    border-radius: 0 4px 4px 0;
+    font-weight: 500;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .skill-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px;
+  }
+  .skill-card h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .skill-list { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+  .skill-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .bar-wrap { width: 80px; height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; }
+  .bar { height: 100%; border-radius: 3px; background: var(--teal); transition: width 1s ease; }
+
+  /* ── PROJECTS ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 20px;
+  }
+  .proj-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: box-shadow .2s, transform .2s;
+  }
+  .proj-card:hover { box-shadow: 0 6px 24px rgba(15,28,46,.09); transform: translateY(-2px); }
+  .proj-num { font-size: 11px; color: var(--muted); letter-spacing: .5px; }
+  .proj-title { font-size: 17px; font-weight: 500; color: var(--navy); }
+  .proj-desc { font-size: 13px; color: var(--muted); line-height: 1.7; font-weight: 300; flex: 1; }
+  .proj-metric {
+    font-size: 12px; color: var(--teal); font-weight: 500;
+    background: var(--teal-light);
+    display: inline-block; padding: 4px 11px;
+    border-radius: 4px; align-self: flex-start;
+  }
+  .proj-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background: var(--navy);
+    color: #fff;
+    padding: 72px 48px;
+    text-align: center;
+  }
+  .contact-section .section-label { color: #7ecfbe; }
+  .contact-section .section-title { color: #fff; }
+  .contact-section .section-sub { color: #a0b4cc; margin: 0 auto 40px; }
+  .contact-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .contact-link {
+    display: flex; align-items: center; gap: 9px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.14);
+    color: #fff; padding: 13px 24px; border-radius: 8px;
+    text-decoration: none; font-size: 14px;
+    transition: background .2s;
+  }
+  .contact-link:hover { background: rgba(255,255,255,.14); }
+  .contact-link.primary { background: var(--teal); border-color: transparent; }
+  .contact-link.primary:hover { background: var(--teal-mid); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy2);
+    text-align: center;
+    padding: 22px;
+    font-size: 12px;
+    color: #4a5e75;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: block; }
+    .nav-links.open {
+      display: flex; flex-direction: column; gap: 0;
+      position: absolute; top: 64px; left: 0; right: 0;
+      background: var(--white); border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .nav-links.open a { display: block; padding: 12px 24px; }
+
+    .hero { padding: 48px 20px 52px; gap: 36px; }
+    .hero h1 { font-size: 34px; }
+    .hero-right { grid-template-columns: 1fr 1fr; }
+    .stat-card .num { font-size: 26px; }
+
+    .section, .contact-section { padding: 48px 20px; }
+    .section-title { font-size: 26px; }
+
+    .tl-left { display: none; }
+    .tl-item { gap: 20px; }
+    .tl-line { display: none; }
+
+    .hero-btns { flex-direction: column; }
+    .btn-primary, .btn-outline { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Anmol Jain</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#story">Story</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:ajanmol22@gmail.com" class="nav-cta" id="navCta">Hire Me</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="hero-badge">Open to DA &middot; ML &middot; Junior DS Roles</span>
+    <h1>Data Analyst<br>with <em>real-world</em><br>warehouse ops DNA</h1>
+    <p class="hero-sub">
+      I turn messy operational data into automated dashboards and actionable insights &mdash;
+      currently at Merlin Brands, where I've reduced manual reporting by 40% and improved
+      warehouse picking time by 60%.
+    </p>
+    <div class="hero-tags">
+      <span class="htag">SQL &amp; PostgreSQL</span>
+      <span class="htag">Python &middot; Pandas</span>
+      <span class="htag">Streamlit</span>
+      <span class="htag">Power BI</span>
+      <span class="htag">Machine Learning</span>
+      <span class="htag">Warehouse Ops</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#story" class="btn-primary">View My Journey</a>
+      <a href="mailto:ajanmol22@gmail.com" class="btn-outline">ajanmol22@gmail.com</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-card">
+      <div class="num">1.5+</div>
+      <div class="label">Years professional experience</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">40%</div>
+      <div class="label">Reporting time saved at Merlin</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">92%</div>
+      <div class="label">NLP classifier accuracy achieved</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">60%</div>
+      <div class="label">Picking time reduced via routing</div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="section alt" id="story">
+  <div class="section-label">My Journey</div>
+  <div class="section-title">Career Timeline</div>
+  <p class="section-sub">From business school to production dashboards &mdash; here's how I got here.</p>
+
+  <div class="timeline">
+
+    <!-- Merlin Brands -->
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-date">July 2025 &ndash; Present</div>
+        <div class="tl-role">Full-Time</div>
+      </div>
+      <div class="tl-line"><div class="tl-dot"></div></div>
+      <div class="tl-body">
+        <div class="tl-org">Merlin Brands</div>
+        <div class="tl-title">Data Analyst</div>
+        <div class="tl-desc">
+          Built and deployed an interactive Streamlit dashboard connected to live PostgreSQL data,
+          giving the ops team real-time visibility into warehouse performance. Implemented automated
+          ABC/XYZ stock classification and route optimization &mdash; replacing manual spreadsheet
+          processes that previously took hours each day. Oversee data quality and KPI tracking
+          inside the Pyrops WMS platform.
+        </div>
+        <div class="tl-chips">
+          <span class="chip">Streamlit</span>
+          <span class="chip">PostgreSQL</span>
+          <span class="chip">Python</span>
+          <span class="chip">Pyrops WMS</span>
+          <span class="chip">ABC/XYZ Analysis</span>
+          <span class="chip">Route Optimization</span>
+        </div>
+        <div class="tl-impacts">
+          <span class="impact">40% less manual reporting time</span>
+          <span class="impact">60% faster picking via route analysis</span>
+          <span class="impact">30% fewer planning errors</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cognifyz -->
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-date">Nov 2024 &ndash; Jan 2025</div>
+        <div class="tl-role">Internship</div>
+      </div>
+      <div class="tl-line"><div class="tl-dot"></div></div>
+      <div class="tl-body">
+        <div class="tl-org">Cognifyz Technologies</div>
+        <div class="tl-title">Data Analyst Intern</div>
+        <div class="tl-desc">
+          Cleaned and processed datasets of 10,000+ business records, identifying and resolving
+          data quality issues before analysis. Built regression models to predict operational
+          performance metrics and automated parts of the EDA pipeline using Python.
+        </div>
+        <div class="tl-chips">
+          <span class="chip">Python</span>
+          <span class="chip">EDA</span>
+          <span class="chip">Regression</span>
+          <span class="chip">Seaborn</span>
+          <span class="chip">Data Cleaning</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="tl-item">
+      <div class="tl-left">
+        <div class="tl-date">2023 &ndash; 2025</div>
+        <div class="tl-role">Education</div>
+      </div>
+      <div class="tl-line"><div class="tl-dot"></div></div>
+      <div class="tl-body">
+        <div class="tl-org">Doon Business School</div>
+        <div class="tl-title">PGDM &mdash; Data Analytics (Major) &amp; Marketing (Minor)</div>
+        <div class="tl-desc">
+          Developed strong foundations in statistics, SQL, business analytics, and exploratory
+          data analysis. Applied classroom concepts to real datasets through coursework projects.
+        </div>
+        <div class="tl-chips">
+          <span class="chip">Statistics</span>
+          <span class="chip">Business Analytics</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Excel</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="section-label">Proficiency</div>
+  <div class="section-title">Technical Skills</div>
+  <p class="section-sub">Tools and technologies I use daily and can confidently discuss in a technical interview.</p>
+
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h4>🗃️ Data &amp; Databases</h4>
+      <ul class="skill-list">
+        <li>SQL &amp; PostgreSQL <div class="bar-wrap"><div class="bar" style="width:90%"></div></div></li>
+        <li>Python (Pandas, NumPy) <div class="bar-wrap"><div class="bar" style="width:85%"></div></div></li>
+        <li>Excel &amp; Google Sheets <div class="bar-wrap"><div class="bar" style="width:88%"></div></div></li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <h4>📊 Visualization &amp; BI</h4>
+      <ul class="skill-list">
+        <li>Power BI / DAX <div class="bar-wrap"><div class="bar" style="width:88%"></div></div></li>
+        <li>Streamlit Dashboards <div class="bar-wrap"><div class="bar" style="width:83%"></div></div></li>
+        <li>Seaborn &amp; Matplotlib <div class="bar-wrap"><div class="bar" style="width:80%"></div></div></li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <h4>🤖 Machine Learning</h4>
+      <ul class="skill-list">
+        <li>Regression Models <div class="bar-wrap"><div class="bar" style="width:82%"></div></div></li>
+        <li>Classification (SVM, LR) <div class="bar-wrap"><div class="bar" style="width:77%"></div></div></li>
+        <li>Model Evaluation <div class="bar-wrap"><div class="bar" style="width:80%"></div></div></li>
+      </ul>
+    </div>
+    <div class="skill-card">
+      <h4>🏭 Domain Knowledge</h4>
+      <ul class="skill-list">
+        <li>Warehouse Operations <div class="bar-wrap"><div class="bar" style="width:82%"></div></div></li>
+        <li>Supply Chain Analytics <div class="bar-wrap"><div class="bar" style="width:78%"></div></div></li>
+        <li>WMS (Pyrops) <div class="bar-wrap"><div class="bar" style="width:82%"></div></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section alt" id="projects">
+  <div class="section-label">Work</div>
+  <div class="section-title">Projects &amp; Builds</div>
+  <p class="section-sub">Deployed tools and models I've built &mdash; each solving a real problem.</p>
+
+  <div class="projects-grid">
+    <div class="proj-card">
+      <div class="proj-num">01 &mdash; Production</div>
+      <div class="proj-title">Warehouse Operations Dashboard</div>
+      <div class="proj-desc">
+        Live Streamlit dashboard connected to PostgreSQL, giving the ops team real-time KPIs &mdash;
+        GRN intake, putaway rates, and stock classification &mdash; replacing daily manual reports.
+      </div>
+      <div class="proj-metric">40% reduction in reporting time</div>
+      <div class="proj-chips">
+        <span class="chip">Streamlit</span>
+        <span class="chip">PostgreSQL</span>
+        <span class="chip">Python</span>
+        <span class="chip">Predictive ML</span>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-num">02 &mdash; ML Model</div>
+      <div class="proj-title">Speech-to-Text Recognition Model</div>
+      <div class="proj-desc">
+        Deep learning pipeline that processes raw audio and converts unstructured speech into
+        structured text. Built from scratch using Python and audio signal processing libraries.
+      </div>
+      <div class="proj-metric">End-to-end audio pipeline deployed</div>
+      <div class="proj-chips">
+        <span class="chip">Python</span>
+        <span class="chip">Deep Learning</span>
+        <span class="chip">Audio Processing</span>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-num">03 &mdash; Computer Vision</div>
+      <div class="proj-title">Real-Time Object Tracking System</div>
+      <div class="proj-desc">
+        Frame-by-frame object detection and coordinate tracking using OpenCV. Processes live
+        video input to identify and follow target objects in real time.
+      </div>
+      <div class="proj-metric">Live tracking deployed</div>
+      <div class="proj-chips">
+        <span class="chip">OpenCV</span>
+        <span class="chip">Python</span>
+        <span class="chip">Computer Vision</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-label">Get in Touch</div>
+  <div class="section-title">Let's work together</div>
+  <p class="section-sub">
+    I'm actively looking for Data Analyst, ML Analyst, and Junior Data Scientist roles.
+    Open to full-time positions across domains.
+  </p>
+  <div class="contact-links">
+    <a href="mailto:ajanmol22@gmail.com" class="contact-link primary">✉ ajanmol22@gmail.com</a>
+    <a href="https://www.linkedin.com/in/anmol-jain-b00417246/" target="_blank" rel="noopener" class="contact-link">LinkedIn ↗</a>
+    <a href="https://github.com/ajnmoljain" target="_blank" rel="noopener" class="contact-link">GitHub ↗</a>
+  </div>
+</section>
+
+<footer>
+  Anmol Jain &middot; Data Analyst &middot; &copy; 2026
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // Animate skill bars on scroll
+  const bars = document.querySelectorAll('.bar');
+  const stored = {};
+  bars.forEach(b => {
+    stored[b] = b.style.width;
+    b.style.width = '0';
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.bar').forEach(b => {
+          b.style.width = stored[b];
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.skill-card').forEach(c => observer.observe(c));
+
+  // Active nav link highlight
+  const sections = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) current = s.id;
+    });
+    links.forEach(l => {
+      l.style.color = l.getAttribute('href') === '#' + current ? '#0d7a6b' : '';
+    });
+  });
+</script>
+
+</body>
+</html>
